@@ -1,5 +1,19 @@
 # Your first Progressive Web App Code Lab
 
+-This is to demo webapp on local machine	+These are the resource files needed for the [Your first Progressive Web App](https://codelabs.developers.google.com/codelabs/your-first-pwapp/)
+-Needs:	+code lab from Google.
+-1) Web browser, using Chrome	
+-2) Chrome extension "Web server for Chrome" (ie, "200 OK")	
+-3) a working folder to contains the web app files	
+-4) Point the webserver to the working folder	
+-5) this set of demo codes	
+ 	 
+-How to run:	+This is a work in progress, if you find a mistake, please [file an issue](https://github.com/googlecodelabs/your-first-pwapp/issues). Thanks!
+-1) Prepare the web-app files in your working folder	
+-2) Start "Web server for Chrome" pointing to your working folder	
+-3) your web-app is running
+
+
 These are the resource files needed for the [Your first Progressive Web App](https://codelabs.developers.google.com/codelabs/your-first-pwapp/)
 code lab from Google.
 
