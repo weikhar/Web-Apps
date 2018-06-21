@@ -1,4 +1,4 @@
-# Your first Progressive Web App Code Lab
+# Web App Demo
 
 -This is to demo webapp on local machine	+These are the resource files needed for the [Your first Progressive Web App](https://codelabs.developers.google.com/codelabs/your-first-pwapp/)
 -Needs:	+code lab from Google.
