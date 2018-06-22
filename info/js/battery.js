@@ -17,19 +17,60 @@ limitations under the License.
 */
 
 'use strict';
-function log(message) {
-  document.querySelector('#data').innerHTML += message + '<br />';
+function log1(message) {
+  document.querySelector('#data1').innerHTML += message + '<br />';
 }
 function showDT() {return new Date().toLocaleString();}
 
 var BattScan = 1;
 
-function logBattery(battery) {
-  window.battery = battery;
-  console.log('Battery: ', battery);
-  log('<b>=== Battery Information API </b>: navigator.battery @ ' + showDT() + ' === #' + BattScan);
+let batteryIsCharging = false;
+
+if (navigator.getBattery) 
+{	
+  navigator.getBattery().then(function(battery) {
+    log1('---');
+    batteryIsCharging = battery.charging;
+	  
+    log1('navigator.getbattery() @ ' + showDT() + ' === B1#' + BattScan);
+    log1('Battery level: ' + battery.level * 100 + '%');
+    log1(battery.charging ? 'Battery charging state: charging' : 'Battery charging state: not charging');
+	if (battery.dischargingTime) {
+	  log1('Battery discharging time: ' + battery.dischargingTime);
+	}
+	battery.addEventListener('chargingchange', function() {
+	  //batteryIsCharging = battery.charging;
+	  //log('Battery chargingchange event: ' + batteryIsCharging);	  
+	  log1('Battery chargingchange event: ' + battery.charging);
+	});
+	//battery.addEventListener('chargingchange', function() {}, false);
+	battery.addEventListener('levelchange', function() {
+	  log1('Battery levelchange event: ' + battery.onlevelchange);	  
+	});
+	battery.addEventListener('chargingtimechange', function() {
+	  log1('Battery chargingtimechange event: ' + battery.onchargingtimechange);	  
+	});
+	battery.addEventListener('dischargingtimechange', function() {
+	  log1('Battery dischargingtimechange event: ' + battery.ondischargingtimechange);	  
+	});
+  });
+} 
+else if (navigator.battery) 
+{
+  logBattery2(navigator.battery);
+} 
+else 
+{
+  log1('Shame! The Battery API is not supported on this platform.');
+}
+
+function logBattery2(battery) {
+  log('---');
+  log('navigator.battery @ ' + showDT() + ' === B2#' + BattScan);
   BattScan++;
-  log('Battery level: ' + battery.level * 100 + '%');
+  window.battery = battery;
+  //log('Battery level: ' + battery.level * 100 + '%');
+  log('Battery level: ' + battery.level);
   log('Battery charging: ' + battery.charging);
   if (battery.dischargingTime) {
     log('Battery discharging time: ' + battery.dischargingTime);
@@ -38,13 +79,4 @@ function logBattery(battery) {
     log('Battery chargingchange event: ' + battery.charging);
   }, false);
 }
-
-if (navigator.getBattery) {
-  navigator.getBattery().then(logBattery, function() {
-    log('There was an error getting the battery state.');
-  });
-} else if (navigator.battery) {
-  logBattery(navigator.battery);
-} else {
-  log('Shame! The Battery API is not supported on this platform.');
-}
+ 

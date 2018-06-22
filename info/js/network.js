@@ -18,7 +18,7 @@ limitations under the License.
 
 'use strict';
 function log(message) {
-  document.querySelector('#data').innerHTML += message + '<br />';
+  document.querySelector('#data2').innerHTML += message + '<br />';
 }
 function showDT() {return new Date().toLocaleString();}
 
@@ -28,8 +28,9 @@ var numScan = 1;
 navigator.connection.addEventListener('change', logNetworkInfo);
 
 function logNetworkInfo() {
-  log('');
-  log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === #' + numScan);
+  log('---');
+  //log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === N#' + numScan);
+  log('navigator.connection @ ' + showDT() + ' === N#' + numScan);
   // Network type that browser uses
   log('Type: ' + navigator.connection.type);
 

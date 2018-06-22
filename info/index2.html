@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    padding: 10px;
+    /* height: 300px; /* Should be removed. Only for demonstration */
+}
+
+p#data1 {
+  border-top: 1px dotted #666;
+  font-family: Courier New, monospace;
+  line-height: 1.3em;
+  padding: 1em 0 0 0;
+}
+
+p#data2 {
+  border-top: 1px dotted #666;
+  font-family: Courier New, monospace;
+  line-height: 1.3em;
+  padding: 1em 0 0 0;
+}
+</style>
+</head>
+<body>
+
+<h2><a href="index.html" title="Web Apps demo page">Web Apps</a> APIs</h2>
+
+<div class="row">
+  <div class="column" style="background-color:#ccc;">
+  You can inspect the BatteryManager object from the console.
+  <h2><b>=== Battery Information API ===</b></h2>
+    <!-- <p id="data1" style="border-top: none;"></p> -->
+	<p id="data1"></p>
+  </div>
+  <div class="column" style="background-color:#ddd;">
+    <h2><b>=== Network Information API ===</b></h2>
+    <!-- <p id="data2" style="border-top: none;"></p> -->
+	<p id="data2"></p>
+  </div>
+</div>
+
+  <script src="js/battery.js"></script>
+  <script src="js/network.js"></script>
+  
+  <!--- <a href="https://github.com/samdutton/simpl/blob/gh-pages/battery" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a> --->
+  <a href="https://github.com/samdutton/simpl/blob/gh-pages/battery" title="View source for this page on GitHub">View source on GitHub</a>
+</body>
+</html>
