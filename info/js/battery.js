@@ -30,28 +30,23 @@ if (navigator.getBattery)
 {	
   navigator.getBattery().then(function(battery) {
     log1('---');
-    batteryIsCharging = battery.charging;
-	  
-    log1('navigator.getbattery() @ ' + showDT() + ' === B1#' + BattScan);
-    log1('Battery level: ' + battery.level * 100 + '%');
-    log1(battery.charging ? 'Battery charging state: charging' : 'Battery charging state: not charging');
-	if (battery.dischargingTime) {
-	  log1('Battery discharging time: ' + battery.dischargingTime);
-	}
+	logBatt(battery);
+
 	battery.addEventListener('chargingchange', function() {
-	  //batteryIsCharging = battery.charging;
-	  //log('Battery chargingchange event: ' + batteryIsCharging);	  
-	  log1('Battery chargingchange event: ' + battery.charging);
+	  log1('Battery Event - chargingchange');
+	  logBatt(battery);  
 	});
-	//battery.addEventListener('chargingchange', function() {}, false);
 	battery.addEventListener('levelchange', function() {
-	  log1('Battery levelchange event: ' + battery.onlevelchange);	  
+	  log1('Battery Event - levelchange');
+	  logBatt(battery);	
 	});
 	battery.addEventListener('chargingtimechange', function() {
-	  log1('Battery chargingtimechange event: ' + battery.onchargingtimechange);	  
+	  log1('Battery Event - chargingtimechange');	
+	  logBatt(battery);   
 	});
 	battery.addEventListener('dischargingtimechange', function() {
-	  log1('Battery dischargingtimechange event: ' + battery.ondischargingtimechange);	  
+	  log1('Battery Event - dischargingtimechange');
+	  logBatt(battery);	  
 	});
   });
 } 
@@ -63,6 +58,28 @@ else
 {
   log1('Shame! The Battery API is not supported on this platform.');
 }
+
+
+function logBatt(battery)
+{
+  log1('navigator.getbattery() @ ' + showDT() + ' === B1#' + BattScan);
+  BattScan++;
+  log1('Battery level: ' + battery.level * 100 + ' %');
+  log1(battery.charging ? 'Battery charging state: charging' : 'Battery charging state: not charging');
+  if (battery.dischargingTime == 'Infinity')
+  {
+    log1('Battery discharging time: Infinity');	
+  }
+  else
+  {
+    var dts = battery.dischargingTime;
+    var dtm = dts / 60;
+    var dth = dtm / 60;
+    log1('Battery discharging time: ' + dts + ' sec = ' + dtm.toFixed(2) + ' min = ' + dth.toFixed(2) + ' hrs');
+  }
+  log1('---');
+}
+
 
 function logBattery2(battery) {
   log('---');
