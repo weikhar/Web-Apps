@@ -44,26 +44,39 @@ visible:	The Document is at least partially visible on at least one screen. This
 */
 
 var VisCnt = 1;
+document.addEventListener('visibilitychange', handleVisibilityChange, true);
+window.addEventListener('blur', function(){logVisibility(3);});
+window.addEventListener('focus', function(){logVisibility(4);});
+
+log3('document.visibilityState');
 handleVisibilityChange();
-document.addEventListener('visibilitychange', handleVisibilityChange, false);
-window.addEventListener('blur', function(){logVisibility('blur');});
-window.addEventListener('focus', function(){logVisibility('focus');});
 
 function logVisibility(state)
 {
-  log3('document.visibilityState @ ' + showDT() + ' === V#' + VisCnt);
+  var msg = "";
+  if (state == 0)		{ msg = "- Page is <em>hidden<em>"; }
+  else if (state == 1)	{ msg = "- Page is <em>prerender<em>"; }
+  else if (state == 2)	{ msg = "- Page is <em>visible<em>"; }
+  else if (state == 3)	{ msg = "- Page <em>lost focus<em>"; }
+  else if (state == 4)	{ msg = "- Page <em>got focus<em>"; }
+  else { msg = "- Page is unknown state"; }
+  
+  log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] ' + msg);
   VisCnt++;
-  if 		(state == 'hidden')		{log3('Page is <em>hidden<em>');}
-  else if	(state == 'prerender')	{log3('Page is <em>prerender<em>');}
-  else if	(state == 'visible')	{log3('Page is <em>visible<em>');}
-  else {log3('unknown');}
+
+  //{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page is <em>hidden<em>');}
+//{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page is <em>prerender<em>');}
+//{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page is <em>visible<em>');}
+//{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page <em>lost focus<em>');}
+//{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page <em>got focus<em>');}
+//{log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] - Page is unknown state');}
 }
 
 function handleVisibilityChange() {
   console.log( document.visibilityState );
 
-  if (document.visibilityState == "hidden") 		{ logVisibility('hidden');} 
-  else if (document.visibilityState == "prerender")	{ logVisibility('prerender');} 
-  else if (document.visibilityState == "visible") 	{ logVisibility('visible');} 
-  else { logVisibility('unknown');} 
+  if (document.visibilityState == "hidden") 		{ logVisibility(0); } 
+  else if (document.visibilityState == "prerender")	{ logVisibility(1); } 
+  else if (document.visibilityState == "visible") 	{ logVisibility(2); }
+  else { logVisibility("unknown"); } 
 }
