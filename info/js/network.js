@@ -18,7 +18,7 @@ limitations under the License.
 
 'use strict';
 function log(message) {
-  document.querySelector('#data2').innerHTML += message + '<br />';
+  document.querySelector('#network').innerHTML += message + '<br />';
 }
 function showDT() {return new Date().toLocaleString();}
 
