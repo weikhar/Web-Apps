@@ -39,53 +39,53 @@ logNetworkInfo();
 function logNetworkInfo() {
   log('---');
   //log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === N#' + numScan);
-  log('navigator.connection @ ' + showDT() + ' === N#' + numScan);
+  log('[' + numScan + '] navigator.connection @ ' + showDT() + '===');
   // Network type that browser uses
-  log(' Type: ' + navigator.connection.type);
+  log('.a) Network type: ' + navigator.connection.type);
 
   // Effective bandwidth estimate
-  log(' Downlink: ' + navigator.connection.downlink + ' Mb/s');
+  log('.b) Bandwidth estimate: ' + navigator.connection.downlink + ' Mb/s');
 
   // Effective round-trip time estimate
-  log(' rtt: ' + navigator.connection.rtt + ' ms');
+  log('.c) Round-trip time: ' + navigator.connection.rtt + ' ms');
 
   // Upper bound on the downlink speed of the first network hop
-  log(' downlinkMax: ' + navigator.connection.downlinkMax + ' Mb/s');
+  log('.d) Max downlink speed: ' + navigator.connection.downlinkMax + ' Mb/s');
 
   // Effective connection type determined using a combination of recently
   // observed rtt and downlink values: ' +
-  log(' effectiveType: ' + navigator.connection.effectiveType);
+  log('.e) Connection type: ' + navigator.connection.effectiveType);
   
   // True if the user has requested a reduced data usage mode from the user agent.
-  log(' saveData: ' + navigator.connection.saveData);
+  log('.f) Reduced data usage mode: ' + navigator.connection.saveData);
   
   numScan++;
 }
 function cmpNetworkInfo() {
-  log('navigator.connection @ ' + showDT() + ' === N#' + numScan);
-  // log the changed parameter:
+  log('[' + numScan + '] navigator.connection @ ' + showDT() + '===');
+ // log the changed parameter:
   if ( network_type != navigator.connection.type ) 
   { 
     network_type = navigator.connection.type; 
-    log(' Network type that browser uses: ' + network_type);
+    log('.a) Network type: ' + network_type);
   }
   
   if (downlink_Mbps != navigator.connection.downlink) 
   {
     downlink_Mbps = navigator.connection.downlink; 
-    log(' Effective bandwidth estimate: ' + downlink_Mbps + ' Mb/s');
+    log('.b) Bandwidth estimate: ' + downlink_Mbps + ' Mb/s');
   }
   
   if (rtt_ms != navigator.connection.rtt) 
   {
     rtt_ms = navigator.connection.rtt;
-    log(' Effective round-trip time estimate: ' + rtt_ms + ' ms');
+    log('.c) Round-trip time: ' + rtt_ms + ' ms');
   }
 
   if (downlink_Peak_Mbps != navigator.connection.downlinkMax) 
   {
     downlink_Peak_Mbps = navigator.connection.downlinkMax;
-    log(' Max downlink speed: ' + downlink_Peak_Mbps + ' Mb/s');
+    log('.d) Max downlink speed: ' + downlink_Peak_Mbps + ' Mb/s');
   }
 
   if (effective_type != navigator.connection.effectiveType) 
@@ -93,14 +93,14 @@ function cmpNetworkInfo() {
     effective_type = navigator.connection.effectiveType;
     // Effective connection type determined using a combination of recently
     // observed rtt and downlink values: ' +
-    log(' Effective connection type: ' + effective_type);
+    log('.e) Connection type: ' + effective_type);
   }
 
   if (User_saveData = navigator.connection.saveData) 
   {
     User_saveData = navigator.connection.saveData;
     // True if the user has requested a reduced data usage mode from the user agent.
-    log(' Reduced data usage mode: ' + navigator.connection.saveData);
+    log('.f) Reduced data usage mode: ' + navigator.connection.saveData);
   }
   numScan++;
 }
