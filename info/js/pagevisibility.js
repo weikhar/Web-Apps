@@ -57,8 +57,16 @@ function logVisibility(state)
   if (state == 0)		{ msg = "- Page is <em>hidden<em>"; }
   else if (state == 1)	{ msg = "- Page is <em>prerender<em>"; }
   else if (state == 2)	{ msg = "- Page is <em>visible<em>"; }
-  else if (state == 3)	{ msg = "- Page <em>lost focus<em>"; }
-  else if (state == 4)	{ msg = "- Page <em>got focus<em>"; }
+  else if (state == 3)	
+  { 
+	msg = "- Page <em>lost focus<em>"; 
+	document.getElementById("pagevisibility").style.backgroundColor = "lightblue";
+  }
+  else if (state == 4)	
+  { 
+    msg = "- Page <em>got focus<em>"; 
+	document.getElementById("pagevisibility").style.backgroundColor = "coral";
+  }
   else { msg = "- Page is unknown state"; }
   
   log3('[' + VisCnt + '] ' + showDT() + ' State [' + document.visibilityState + '] ' + msg);
