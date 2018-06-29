@@ -1,8 +1,12 @@
+// 2018 Jun: browsers do not support cookie dropped from localhost or file:///
+// therefore this demo will not work on local
+
 'use strict';
 function log4(message) {
   document.querySelector('#cookie').innerHTML += message + '<br />';
 }
 
+//document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
 checkCookie();
   
   
@@ -27,11 +31,12 @@ function getCookie(cname) {
             c = c.substring(1);
         }
         if (c.indexOf(name) == 0) {
-			log4("getCookie @1 = [" + cname + "]");
-            return c.substring(name.length, c.length);
+			var return_name = c.substring(name.length, c.length);
+			log4("getCookie returning [" + return_name + "]");
+            return return_name;
         }
     }
-	log4("getCookie @2 = [" + cname + "]");
+	log4("getCookie returns ''");
     return "";
 }
 
@@ -41,13 +46,12 @@ function checkCookie() {
         alert("Welcome again " + user);
 		log4("checkCookie @1: " + user);
     } else {
- 	   log4("checkCookie @2a:" + user);
        //user = prompt("Please enter your name:","");
 	   user = "abc123";
- 	   log4("checkCookie @2b:" + user);
+ 	   log4("checkCookie @2: " + user);
        if (user != "" && user != null) {
+ 		   log4("checkcookie @2c = [" + user + "]");
            setCookie("username", user, 30);
-			log4("setCookie @2c = [" + user + "]");
        }
     }
 }
