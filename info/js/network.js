@@ -43,7 +43,7 @@ function logNetworkInfo() {
   //log('latest date = ' + d.getDate() + ' -- last date = ' + lastDate);
   if (lastDate != d.getDate()) 
   { 
-    log('--- --- ---');
+    log('=== === === === ===');
 	dayScan = 1;
 	lastDate = d.getDate();
   }
