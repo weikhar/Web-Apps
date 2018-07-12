@@ -23,6 +23,37 @@ function log(message) {
 }
 function showDT() {return new Date().toLocaleString();}
 
+function getDateofYear() 
+{
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + "/" + month + "/" + day;
+}
+function getTimeofDay() 
+{
+    var date = new Date();
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    return hour + ":" + min + ":" + sec;
+}
+function getDateTime() 
+{
+    return getDateofYear() + ", " + getTimeofDay();
+}
+
 var numScan = 1;
 var dayScan = 1;
 var lastDate = 0;
@@ -38,18 +69,18 @@ var User_saveData 		= navigator.connection.saveData;
 
 logNetworkInfo();
 
-function logNetworkInfo() {
-  var d = new Date();
-  //log('latest date = ' + d.getDate() + ' -- last date = ' + lastDate);
-  if (lastDate != d.getDate()) 
+function logNetworkInfo() 
+{
+  if (lastDate != getDateofYear()) 
   { 
-    log('=== === === === ===');
 	dayScan = 1;
-	lastDate = d.getDate();
+	lastDate = getDateofYear();
+    log('=== === [' + lastDate + '] === === ===');
   }
   
   //log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === N#' + numScan);
-  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + showDT() + '===');
+//  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + showDT() + '===');
+  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + getTimeofDay() + ' ===');
   // Network type that browser uses
   log('    a) Network type: ' + navigator.connection.type);
 
@@ -73,21 +104,21 @@ function logNetworkInfo() {
   dayScan++;
 }
 
-function cmpNetworkInfo() {
-  var d = new Date();
-  //log('latest date = ' + d.getDate() + ' -- last date = ' + lastDate);
-  if (lastDate != d.getDate()) 
+function cmpNetworkInfo() 
+{
+  if (lastDate != getDateofYear()) 
   { 
-    log('--- --- ---');
 	dayScan = 1;
-	lastDate = d.getDate();
+	lastDate = getDateofYear();
+    log('=== === [' + lastDate + '] === === ===');
   }
   else
   {
 	  log ('---');
-  }
-	    
-  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + showDT() + '===');
+  }	  
+  
+//  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + showDT() + '===');
+  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + getTimeofDay() + ' ===');
  // log the changed parameter:
   if ( network_type != navigator.connection.type ) 
   { 

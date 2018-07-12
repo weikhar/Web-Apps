@@ -29,35 +29,32 @@ p#data {
   line-height: 1.3em;
   padding: 1em 0 0 0;
 }
-/*
 p#battery {
   border-top: 1px dotted #666;
   font-family: Courier New, monospace;
-  line-height: 1.3em;
+  //line-height: 0.4;
+  line-height: 40%;
   padding: 1em 0 0 0;
 }
-
 p#network {
   border-top: 1px dotted #666;
   font-family: Courier New, monospace;
-  line-height: 1.3em;
+  line-height: 0.4;
   padding: 1em 0 0 0;
 }
-
 p#pagevisibility {
   border-top: 1px dotted #666;
   font-family: Courier New, monospace;
-  line-height: 1.3em;
+  line-height: 0.4;
   padding: 1em 0 0 0;
 }
 
 p#cookie {
   border-top: 1px dotted #666;
   font-family: Courier New, monospace;
-  line-height: 1.3em;
+  line-height: 0.4;
   padding: 1em 0 0 0;
 }
-*/
 </style>
 </head>
 
@@ -65,22 +62,24 @@ p#cookie {
 
 <h2><a href="index.html" title="Web Apps demo page">Web Apps</a> APIs</h2>
 
-<div >
-  <div class="row" id="cookie" style="background-color:#bbb;">
+<div>
+  <div class="row" style="background-color:#bbb;">
     <h2><b>=== Cookie info ===</b></h2>
 	<p id="cookie"></p>
 </div>
 <div class="row">
   <div class="column" style="background-color:#ccc;">
   <h2><b>=== Battery Information API ===</b></h2>
-  You can inspect the BatteryManager object from the console.
+  <!--- 
+  You can inspect the BatteryManager object from the console. 
+  --->
 	<p id="battery"></p>
   </div>
   <div class="column" style="background-color:#ddd;">
     <h2><b>=== Network Information API ===</b></h2>
 	<p id="network"></p>
   </div>
-  <div class="column" id="pagevisibility" style="background-color:#eee;">
+  <div class="column" style="background-color:#eee;">
     <h2><b>=== Page Visibility API ===</b></h2>
 	<p id="pagevisibility"></p>
   </div>

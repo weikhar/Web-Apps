@@ -18,7 +18,7 @@ limitations under the License.
 
 'use strict';
 function log1(message) {
-  document.querySelector('#battery').innerHTML += message + '<br />';
+  document.querySelector('#battery').innerHTML += '<pre>' + message + '</pre>';
 }
 function showDT() {return new Date().toLocaleString();}
 

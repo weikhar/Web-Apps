@@ -28,8 +28,8 @@ be used to scale back work when the page is no longer visible.
 */
 
 'use strict';
-function log3(message) {
-  document.querySelector('#pagevisibility').innerHTML += message + '<br />';
+function log3(message) {   
+  document.querySelector('#pagevisibility').innerHTML += '<pre>' + message + '</pre>';
 }
 function showDT() {return new Date().toLocaleString();}
 
@@ -60,12 +60,12 @@ function logVisibility(state)
   else if (state == 3)	
   { 
 	msg = "- Page <em>lost focus<em>"; 
-	document.getElementById("pagevisibility").style.backgroundColor = "lightblue";
+	document.getElementById("pagevisibility").style.backgroundColor = "coral";
   }
   else if (state == 4)	
   { 
     msg = "- Page <em>got focus<em>"; 
-	document.getElementById("pagevisibility").style.backgroundColor = "coral";
+	document.getElementById("pagevisibility").style.backgroundColor = "lightblue";
   }
   else { msg = "- Page is unknown state"; }
   
