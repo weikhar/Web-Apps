@@ -75,6 +75,7 @@ function logNetworkInfo()
   { 
 	dayScan = 1;
 	lastDate = getDateofYear();
+	log('');
     log('=== === [' + lastDate + '] === === ===');
   }
   
@@ -110,11 +111,12 @@ function cmpNetworkInfo()
   { 
 	dayScan = 1;
 	lastDate = getDateofYear();
+	log('');
     log('=== === [' + lastDate + '] === === ===');
   }
   else
   {
-	  log ('---');
+	log ('---');
   }	  
   
 //  log('[' + numScan + '][' + dayScan + '] navigator.connection @ ' + showDT() + '===');
