@@ -76,7 +76,7 @@ function logNetworkInfo()
 	dayScan = 1;
 	lastDate = getDateofYear();
 	log('');
-    log('=== === [' + lastDate + '] === === ===');
+    log('===\n===\n=== [' + lastDate + '] ===\n===\n===');
   }
   
   //log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === N#' + numScan);
@@ -111,7 +111,7 @@ function cmpNetworkInfo()
   { 
 	dayScan = 1;
 	lastDate = getDateofYear();
-	log('');
+	log(' ');
     log('=== === [' + lastDate + '] === === ===');
   }
   else
