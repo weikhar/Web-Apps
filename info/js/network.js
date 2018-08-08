@@ -75,10 +75,10 @@ function logNetworkInfo()
   { 
 	dayScan = 1;
 	lastDate = getDateofYear();
-	log('\n');
-    log('==== ==== ==== ==== ==== ==== ====');
-    log('====      [' + lastDate + ']        ====');
-    log('==== ==== ==== ==== ==== ==== ====\n');
+	log('\n\n');
+    log('++++ ++++ ++++ ++++ ++++ ++++ ++++');
+    log('++++      [' + lastDate + ']        ++++');
+    log('++++ ++++ ++++ ++++ ++++ ++++ ++++\n\n');
   }
   
   //log('<b>=== Network Information API </b>: navigator.connection @ ' + showDT() + ' === N#' + numScan);
@@ -113,10 +113,10 @@ function cmpNetworkInfo()
   { 
 	dayScan = 1;
 	lastDate = getDateofYear();
-	log('\n');
-    log('==== ==== ==== ==== ==== ==== ====');
-    log('====      [' + lastDate + ']        ====');
-    log('==== ==== ==== ==== ==== ==== ====\n');
+	log('\n\n');
+    log('++++ ++++ ++++ ++++ ++++ ++++ ++++');
+    log('++++      [' + lastDate + ']        ++++');
+    log('++++ ++++ ++++ ++++ ++++ ++++ ++++\n\n');
   }
   else
   {
